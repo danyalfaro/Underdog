@@ -44,6 +44,28 @@ const Spotify = {
     });
   },
 
+  getRecommended(seed) {
+    const accessToken = Spotify.getAccessToken();
+    return fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${seed.id}&max_popularity=50`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    }).then(response => {
+      return response.json();
+    }).then(jsonResponse => {
+      if (!jsonResponse.tracks) {
+        return [];
+      }
+      return jsonResponse.tracks.map(track => ({
+        id: track.id,
+        name: track.name,
+        artist: track.artists[0].name,
+        album: track.album.name,
+        uri: track.uri
+      }));
+    });
+  },
+
   savePlaylist(name, trackUris) {
     if (!name || !trackUris.length) {
       return;

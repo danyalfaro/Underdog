@@ -13,9 +13,8 @@ class Results extends React.Component {
                     return ( 
                         <IndividualResult name={result.name} id={result.id} key={result.id} addSeed={this.props.addSeed}/>
                     );
-                }else{
-                    return;
                 }
+                return null;
             })
         );
     }

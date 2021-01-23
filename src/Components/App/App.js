@@ -10,11 +10,9 @@ class App extends React.Component {
 
     this.state = {
       searchResults: [],
-      seed: []
+      seed: [],
+      recommended: [],
     };
-
-    // this.search = this.search.bind(this);
-    // this.addSeed = this.addSeed.bind(this);
   }
 
   search = (term) => {
@@ -23,8 +21,18 @@ class App extends React.Component {
     });
   }
 
-  addSeed = (track) => {
-    this.setState({seed: track});
+  addSeed = (name, track) => {
+    this.setState({seed: [{name: name, id: track}]});
+    this.getRecommended();
+    console.log("clicked");
+  }
+
+  getRecommended = () => {
+    if(this.state.seed.length > 0){
+      Spotify.getRecommended(this.state.seed[0]).then(recommendedResult => {
+        this.setState({recommended: recommendedResult});
+      })
+    }
   }
 
   render() {
