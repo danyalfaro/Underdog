@@ -13,7 +13,8 @@ class IndividualResult extends React.Component {
     render() { 
         return ( 
         <div onClick={this.addSeed}>
-            <p>{this.props.name}</p>
+            <h2>{this.props.name}</h2>
+            <h4>{this.props.artist}</h4>
         </div>
         );
     } 

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Spotify from '../../util/Spotify';
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
@@ -22,8 +22,7 @@ class App extends React.Component {
   }
 
   addSeed = (name, track) => {
-    this.setState({seed: [{name: name, id: track}]});
-    this.getRecommended();
+    this.setState({seed: [{name: name, id: track}]}, this.getRecommended);
     console.log("clicked");
   }
 
@@ -39,10 +38,23 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          Underdog
-          <SearchBar onSearch={this.search} />
-          <ResultsList results={this.state.searchResults} addSeed={this.addSeed}/>
+          underdog
         </header>
+        <div className="App-body">
+          <div className="searchSection">
+            <SearchBar onSearch={this.search} />
+            <div className="resultsList">
+              <ResultsList results={this.state.searchResults} addSeed={this.addSeed}/>
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="recommendedSection">
+            <div className="seedList">
+              
+            </div>
+            <div className="recommendedList"></div>
+          </div>
+        </div>
       </div>
     );
   }

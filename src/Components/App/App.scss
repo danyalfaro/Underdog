@@ -1,0 +1,60 @@
+$mainColor: #D8D7D6;
+
+.App {
+  background-color: $mainColor;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  min-height: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #000;
+  border-bottom: 3px solid #000;
+}
+
+.App-body{
+  display: flex;
+}
+
+.searchSection{
+  padding: 30px;
+  min-width: 20%;
+}
+
+.resultsList{
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.divider{
+  min-width: 3px;
+  background-color: #000;
+  height: 92vh;
+}
+
+.recommendedSection{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80vh;
+  margin: 40px;
+}
+
+.seedList{
+  width: 100%;
+  min-height: 20vh;
+}
+
+.recommendedList{
+  width: 100%;
+  min-height: 40vh;
+  background-color: #fff;
+}
+

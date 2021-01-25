@@ -9,9 +9,9 @@ class Results extends React.Component {
     render() {
         return(
             this.props.results.map((result, i) => {
-                if(i < 5){
+                if(i < 9){
                     return ( 
-                        <IndividualResult name={result.name} id={result.id} key={result.id} addSeed={this.props.addSeed}/>
+                        <IndividualResult name={result.name} artist={result.artist} id={result.id} key={result.id} addSeed={this.props.addSeed}/>
                     );
                 }
                 return null;
