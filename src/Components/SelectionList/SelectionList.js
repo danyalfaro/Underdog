@@ -9,9 +9,9 @@ class SelectionList extends React.Component {
     }
     render() { 
         return ( 
-            this.props.seeds.map((seed) => {
+            this.props.selection.map((select) => {
                 return ( 
-                    <Selection name={seed.name} artist={seed.artist} id={seed.id} imageUrl={seed.image} key={seed.id}/>
+                    <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
                 );
             })
         );

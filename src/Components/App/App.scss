@@ -1,4 +1,5 @@
 $mainColor: #D8D7D6;
+$scrollBarColor: #b8b8b8;
 
 .App {
   background-color: $mainColor;
@@ -33,6 +34,23 @@ $mainColor: #D8D7D6;
   overflow-y: scroll;
 }
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scrollBarColor; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(158, 158, 158); 
+}
+
 .divider{
   min-width: 3px;
   background-color: #000;
@@ -56,5 +74,7 @@ $mainColor: #D8D7D6;
   width: 100%;
   min-height: 40vh;
   background-color: #fff;
+  display: flex;
+  
 }
 

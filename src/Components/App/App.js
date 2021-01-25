@@ -51,10 +51,10 @@ class App extends React.Component {
           <div className="divider"></div>
           <div className="recommendedSection">
             <div className="seedList">
-              <SelectionList seeds={this.state.seed}/>
+              <SelectionList selection={this.state.seed}/>
             </div>
             <div className="recommendedList">
-              {/* <SelectionList recommended={this.state.recommended}/> */}
+              <SelectionList selection={this.state.recommended}/>
             </div>
           </div>
         </div>
