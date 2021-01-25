@@ -3,6 +3,7 @@ import Spotify from '../../util/Spotify';
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultsList from '../ResultsList/ResultsList';
+import SelectionList from '../SelectionList/SelectionList';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class App extends React.Component {
     });
   }
 
-  addSeed = (name, track) => {
-    this.setState({seed: [{name: name, id: track}]}, this.getRecommended);
+  addSeed = (name, track, artist, image) => {
+    this.setState({seed: [{name: name, id: track, artist: artist, image: image}]}, this.getRecommended);
     console.log("clicked");
   }
 
@@ -50,9 +51,11 @@ class App extends React.Component {
           <div className="divider"></div>
           <div className="recommendedSection">
             <div className="seedList">
-              
+              <SelectionList seeds={this.state.seed}/>
             </div>
-            <div className="recommendedList"></div>
+            <div className="recommendedList">
+              {/* <SelectionList recommended={this.state.recommended}/> */}
+            </div>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ class Results extends React.Component {
             this.props.results.map((result, i) => {
                 if(i < 9){
                     return ( 
-                        <IndividualResult name={result.name} artist={result.artist} id={result.id} key={result.id} addSeed={this.props.addSeed}/>
+                        <IndividualResult name={result.name} artist={result.artist} image={result.image} id={result.id} key={result.id} addSeed={this.props.addSeed}/>
                     );
                 }
                 return null;

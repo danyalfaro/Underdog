@@ -7,7 +7,7 @@ class IndividualResult extends React.Component {
     }
 
     addSeed = () => {
-        this.props.addSeed(this.props.name, this.props.id)
+        this.props.addSeed(this.props.name, this.props.id, this.props.artist, this.props.image)
     }
 
     render() { 
