@@ -9,10 +9,15 @@ class SelectionList extends React.Component {
     }
     render() { 
         return ( 
-            this.props.selection.map((select) => {
-                return ( 
-                    <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
-                );
+            this.props.selection.map((select, i) => {
+                if(i < 15){
+                    return ( 
+                        <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
+                    );
+                }else{
+                    return null;
+                }
+                
             })
         );
     }

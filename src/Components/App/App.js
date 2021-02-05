@@ -54,8 +54,12 @@ class App extends React.Component {
               <SelectionList selection={this.state.seed}/>
             </div>
             <div className="recommendedList">
-              <SelectionList selection={this.state.recommended}/>
+              {/* <div className="recommendedDetail"></div> */}
+              <div className="selectionList">
+                <SelectionList selection={this.state.recommended}/>
+              </div>
             </div>
+            <button type="button" className="playlistButton">Save to Playlist</button>
           </div>
         </div>
       </div>

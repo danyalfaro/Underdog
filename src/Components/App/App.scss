@@ -72,9 +72,21 @@ $scrollBarColor: #b8b8b8;
 
 .recommendedList{
   width: 100%;
-  min-height: 40vh;
-  background-color: #fff;
   display: flex;
-  
+  min-height: 40vh;
+  max-height: 45vh;
+  overflow-y: scroll;
+  background-color: #fff;
+}
+
+.selectionList{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto auto auto;
+}
+
+.playlistButton{
+  margin-top: auto;
 }
 

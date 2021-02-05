@@ -8,10 +8,10 @@ class Selection extends React.Component {
     }
     render() { 
         return ( 
-        <div>
+        <div className="selectionWrapper">
             <img src={this.props.imageUrl} alt="cover" width="200px"></img>
-            <p>{this.props.name}</p>
-            <p>{this.props.artist}</p>
+            <p className="selectionName">{this.props.name}</p>
+            <p className="selectionArtist">{this.props.artist}</p>
         </div> 
         );
     }
