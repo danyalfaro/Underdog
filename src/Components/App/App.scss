@@ -26,7 +26,7 @@ $scrollBarColor: #b8b8b8;
 
 .searchSection{
   padding: 30px;
-  min-width: 20%;
+  width: 24%;
 }
 
 .resultsList{
@@ -75,14 +75,36 @@ $scrollBarColor: #b8b8b8;
   display: flex;
   min-height: 40vh;
   max-height: 45vh;
-  overflow-y: scroll;
   background-color: #fff;
 }
 
+.recommendedDetail{
+  height:28px;
+  transform: rotate(-90deg);
+  position: relative;
+  top: 30%;
+}
+
+.detailHighlight{
+  width: 60%;
+  height: 15px;
+  background-color: $scrollBarColor;
+  position: relative;
+  margin-left: auto;
+  top: -15px;
+}
+
+.detailWording{
+  font-size: 150%;
+  position: relative;
+  z-index: 1;
+}
+
 .selectionList{
+  overflow-y: scroll;
   width: 100%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33% 33% 33%;
   grid-template-rows: auto auto auto;
 }
 

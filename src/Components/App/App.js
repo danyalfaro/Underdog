@@ -54,7 +54,10 @@ class App extends React.Component {
               <SelectionList selection={this.state.seed}/>
             </div>
             <div className="recommendedList">
-              {/* <div className="recommendedDetail"></div> */}
+              <div className="recommendedDetail">
+                <div className="detailWording">underdogs</div>
+                <div className="detailHighlight"></div>
+              </div>
               <div className="selectionList">
                 <SelectionList selection={this.state.recommended}/>
               </div>

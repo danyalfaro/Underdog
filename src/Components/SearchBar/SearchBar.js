@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './SearchBar.css';
+import './SearchBar.scss';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -24,9 +24,9 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="SearchBar">
-        <input placeholder="Enter A Song Title" onChange={this.handleTermChange} />
-        <button className="SearchButton" onClick={this.search}>search</button>
+      <div className="searchBar">
+        <input type="text" className="searchInput" placeholder="Enter A Song Title" onChange={this.handleTermChange} />
+        <button type="submit" className="SearchButton" onClick={this.search}>search</button>
       </div>
     );
   }

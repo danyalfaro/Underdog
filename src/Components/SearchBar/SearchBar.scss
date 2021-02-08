@@ -1,0 +1,20 @@
+.searchBar{
+    display: flex;
+}
+
+input[type=text] {
+    // border: 2px solid rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+}
+
+input[type=text]:focus{
+    outline: none;
+}
+
+.searchInput{
+    flex: 1;
+    height: 40px;
+    background-color: #b8b8b8;
+    padding-left: 5%;
+}
