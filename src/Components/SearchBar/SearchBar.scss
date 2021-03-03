@@ -1,11 +1,22 @@
 .searchBar{
     display: flex;
+    // margin-bottom: 15px;
+}
+
+.seedType{
+    display: flex;
+    button{
+        outline: none;
+        border: none;
+        font-size: larger;
+        background-color: rgba(255, 255, 255, 0);
+    }
 }
 
 input[type=text] {
     // border: 2px solid rgb(0, 0, 0);
     border: none;
-    border-radius: 4px;
+    color: #5f5f5f;
 }
 
 input[type=text]:focus{
@@ -18,3 +29,16 @@ input[type=text]:focus{
     background-color: #b8b8b8;
     padding-left: 5%;
 }
+
+.searchButton{
+    background-color: #b8b8b8;
+    outline: none;
+    border: none;
+    color: #5f5f5f;
+}
+
+.searchButton:hover{
+    cursor:pointer;
+}
+
+

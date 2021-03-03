@@ -1,4 +1,5 @@
 import React from 'react';
+import './IndividualResult.css';
 
 class IndividualResult extends React.Component {
     constructor(props) {
@@ -12,9 +13,9 @@ class IndividualResult extends React.Component {
 
     render() { 
         return ( 
-        <div onClick={this.addSeed}>
-            <h2>{this.props.name}</h2>
-            <h4>{this.props.artist}</h4>
+        <div className="individualResult" onClick={this.addSeed}>
+            <h3 className="individualResultName">{this.props.name}</h3>
+            <h4 className="individualResultArtist">{this.props.artist}</h4>
         </div>
         );
     } 

@@ -7,7 +7,8 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      term: ''
+      term: '',
+      searchType: "song",
     };
 
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -19,14 +20,34 @@ class SearchBar extends React.Component {
   }
 
   search() {
-    this.props.onSearch(this.state.term);
+    this.props.onSearch(this.state.term, this.state.searchType);
   }
+
+  songType = (e) => {
+    this.setState({searchType: "song"});
+  }
+
+  artistType = (e) => {
+    this.setState({searchType: "artist"});
+  }
+
+  // enterKey = (e) => {
+  //   if(e.key === 'Enter'){
+  //     this.search();
+  //   }
+  // }
 
   render() {
     return (
-      <div className="searchBar">
-        <input type="text" className="searchInput" placeholder="Enter A Song Title" onChange={this.handleTermChange} />
-        <button type="submit" className="SearchButton" onClick={this.search}>search</button>
+      <div>
+        <div className="seedType">
+          <button className="artist" onClick={this.artistType}>artist</button>
+          <button className="song" onClick={this.songType}>song</button>
+        </div>
+        <div className="searchBar">
+          <input type="text" className="searchInput" placeholder="Enter A Song Title" onChange={this.handleTermChange} />
+          <button type="submit" className="searchButton" onClick={this.search}>search</button>
+        </div>
       </div>
     );
   }

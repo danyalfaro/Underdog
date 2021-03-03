@@ -16,10 +16,16 @@ class App extends React.Component {
     };
   }
 
-  search = (term) => {
-    Spotify.search(term).then(searchResults => {
-      this.setState({searchResults: searchResults});
-    });
+  search = (term, searchType) => {
+    if(searchType === "artist"){
+      Spotify.searchArtist(term).then(searchResults => {
+        this.setState({searchResults: searchResults});
+      });
+    }else{
+      Spotify.search(term).then(searchResults => {
+        this.setState({searchResults: searchResults});
+      });
+    }
   }
 
   addSeed = (name, track, artist, image) => {
@@ -51,6 +57,10 @@ class App extends React.Component {
           <div className="divider"></div>
           <div className="recommendedSection">
             <div className="seedList">
+              <div className="recommendedDetail">
+                <div className="detailWording">seeds</div>
+                <div className="detailHighlight"></div>
+              </div>
               <SelectionList selection={this.state.seed}/>
             </div>
             <div className="recommendedList">

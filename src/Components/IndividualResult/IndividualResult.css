@@ -1,0 +1,11 @@
+.individualResult:hover{
+    cursor:pointer;
+}
+
+.individualResultArtist{
+    margin: 0px;
+}
+
+.individualResultName{
+    margin-bottom: 0px;
+}

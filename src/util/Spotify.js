@@ -1,4 +1,4 @@
-const clientId = ''; // Insert client ID here.
+const clientId = '49a038f878e441f3bf83b5292b2c69c5'; // Insert client ID here.
 const redirectUri = 'http://localhost:3000/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 
@@ -45,7 +45,27 @@ const Spotify = {
     });
   },
 
-  getRecommended(seed) {
+  searchArtist(term) {
+    const accessToken = Spotify.getAccessToken();
+    return fetch(`https://api.spotify.com/v1/search?type=artist&q=${term}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    }).then(response => {
+      return response.json();
+    }).then(jsonResponse => {
+      if (!jsonResponse.artists) {
+        return [];
+      }
+      return jsonResponse.artists.items.map(artist => ({
+        id: artist.id,
+        name: artist.name,
+        uri: artist.uri
+      }));
+    });
+  },
+
+  getRecommended(seed, type) {
     const accessToken = Spotify.getAccessToken();
     return fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${seed.id}&max_popularity=50`, {
       headers: {
