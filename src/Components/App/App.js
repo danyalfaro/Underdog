@@ -29,13 +29,17 @@ class App extends React.Component {
   }
 
   addSeed = (name, track, artist, image) => {
-    this.setState({seed: [{name: name, id: track, artist: artist, image: image}]}, this.getRecommended);
+    if(!artist){
+      this.setState({seed: [{name: name, id: track, image: image}]}, this.getRecommended("artists"));
+    }else{
+      this.setState({seed: [{name: name, id: track, artist: artist, image: image}]}, this.getRecommended("tracks"));
+    }
     console.log("clicked");
   }
 
-  getRecommended = () => {
+  getRecommended = (type) => {
     if(this.state.seed.length > 0){
-      Spotify.getRecommended(this.state.seed[0]).then(recommendedResult => {
+      Spotify.getRecommended(this.state.seed[0], type).then(recommendedResult => {
         this.setState({recommended: recommendedResult});
       })
     }
