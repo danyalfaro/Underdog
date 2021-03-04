@@ -41,11 +41,11 @@ class SearchBar extends React.Component {
     return (
       <div>
         <div className="seedType">
-          <button className="artist" onClick={this.artistType}>artist</button>
-          <button className="song" onClick={this.songType}>song</button>
+          <button className={(this.state.searchType === "artist" ? 'selected' : ' ')} onClick={this.artistType}>artist</button>
+          <button className={(this.state.searchType === "song" ? 'selected' : ' ')} onClick={this.songType}>song</button>
         </div>
         <div className="searchBar">
-          <input type="text" className="searchInput" placeholder="Enter A Song Title" onChange={this.handleTermChange} />
+          <input type="text" className="searchInput" placeholder="enter a song or artist..." onChange={this.handleTermChange} />
           <button type="submit" className="searchButton" onClick={this.search}>search</button>
         </div>
       </div>

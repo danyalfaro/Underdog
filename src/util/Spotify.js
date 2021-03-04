@@ -57,12 +57,24 @@ const Spotify = {
       if (!jsonResponse.artists) {
         return [];
       }
-      return jsonResponse.artists.items.map(artist => ({
-        id: artist.id,
-        name: artist.name,
-        uri: artist.uri,
-        image: artist.images[1].url,
-      }));
+        return jsonResponse.artists.items.map((artist) => {
+          if(artist.images[1]){
+            return({
+              id: artist.id,
+              name: artist.name,
+              uri: artist.uri,
+              image: artist.images[1].url,
+          })
+          }else{
+            return({
+              id: artist.id,
+              name: artist.name,
+              uri: artist.uri,
+              image: "https://via.placeholder.com/150",
+          })
+          }
+          }
+      );
     });
   },
 

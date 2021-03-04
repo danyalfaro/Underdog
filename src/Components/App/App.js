@@ -45,6 +45,12 @@ class App extends React.Component {
     }
   }
 
+  createPlaylist = () => {
+    let uris = this.state.recommended.map(elem => elem.uri);
+    // console.log(uris);
+    Spotify.savePlaylist("NewPlaylist", uris);
+  }
+
   render() {
     return (
       <div className="App">
@@ -76,7 +82,7 @@ class App extends React.Component {
                 <SelectionList selection={this.state.recommended}/>
               </div>
             </div>
-            <button type="button" className="playlistButton">Save to Playlist</button>
+            <button type="button" className="playlistButton" onClick={this.createPlaylist}>Save to Playlist</button>
           </div>
         </div>
       </div>
