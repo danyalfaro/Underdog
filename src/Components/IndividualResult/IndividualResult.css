@@ -1,5 +1,10 @@
+.individualResult{
+    padding: 12px;
+}
+
 .individualResult:hover{
     cursor:pointer;
+    background-color: #EAE9E9;
 }
 
 .individualResultArtist{
@@ -8,4 +13,5 @@
 
 .individualResultName{
     margin-bottom: 0px;
+    margin-top: 0px;
 }

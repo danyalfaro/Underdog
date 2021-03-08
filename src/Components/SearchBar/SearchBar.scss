@@ -5,6 +5,8 @@
 
 .seedType{
     display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
     button{
         outline: none;
         border: none;
@@ -40,6 +42,10 @@ input[type=text]:focus{
 
 .searchButton:hover{
     cursor:pointer;
+}
+
+.selected{
+    background-color: #fff !important;
 }
 
 

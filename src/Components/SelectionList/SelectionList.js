@@ -11,9 +11,15 @@ class SelectionList extends React.Component {
         return ( 
             this.props.selection.map((select, i) => {
                 if(i < 15){
-                    return ( 
-                        <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
-                    );
+                    if(this.props.selectionType === "seed"){
+                        return ( 
+                            <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id} type="seed" removeSeed={this.props.removeSeed}/>
+                        );
+                    }else{
+                        return ( 
+                            <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
+                        );
+                    }
                 }else{
                     return null;
                 }

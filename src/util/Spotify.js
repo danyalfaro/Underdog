@@ -78,9 +78,49 @@ const Spotify = {
     });
   },
 
-  getRecommended(seed, type) {
+  getRecommended(seeds, type) {
     const accessToken = Spotify.getAccessToken();
-    return fetch(`https://api.spotify.com/v1/recommendations?seed_${type}=${seed.id}&max_popularity=50`, {
+    let trackUris = [];
+    let artistUris = [];
+    let trackQuery = "";
+    let artistQuery = "";
+    let finalQuery = "";
+    seeds.forEach((seed) => {
+      if(seed.artist){
+        trackUris.push(seed.id);
+      }else{
+        artistUris.push(seed.id);
+      }
+    })
+    if(trackUris.length > 0){
+      for(let i = 0; i < (trackUris.length - 1); i++){
+        trackQuery += trackUris[i];
+        trackQuery += "%2C";
+      }
+      trackQuery += trackUris[trackUris.length - 1];
+      console.log(trackQuery);
+    }
+    if(artistUris.length > 0){
+      for(let i = 0; i < (artistUris.length - 1); i++){
+        artistQuery += artistUris[i];
+        artistQuery += "%2C";
+      }
+      artistQuery += artistUris[artistUris.length - 1];
+      console.log(artistQuery);
+    }
+    
+    if(trackQuery && artistQuery){
+      //Query with both artist and track
+      finalQuery = `https://api.spotify.com/v1/recommendations?seed_artists=${artistQuery}&seed_tracks=${trackQuery}&max_popularity=50`;
+    }else if(trackQuery){
+      //query with only track
+      finalQuery = `https://api.spotify.com/v1/recommendations?seed_tracks=${trackQuery}&max_popularity=50`;
+    }else if(artistQuery){
+      //query with only artist
+      finalQuery = `https://api.spotify.com/v1/recommendations?seed_artists=${artistQuery}&max_popularity=50`;
+    }
+    console.log(finalQuery);
+    return fetch(finalQuery, {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }

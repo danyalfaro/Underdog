@@ -29,17 +29,29 @@ class App extends React.Component {
   }
 
   addSeed = (name, track, artist, image) => {
-    if(!artist){
-      this.setState({seed: [{name: name, id: track, image: image}]}, this.getRecommended("artists"));
+    if(this.state.seed.length < 3){
+        let newSeedList = this.state.seed;
+      if(!artist){
+        let newSeedObject = {name: name, id: track, image: image};
+        newSeedList.push(newSeedObject);
+        this.setState({seed: newSeedList}, this.getRecommended("artists"));
+      }else{
+        let newSeedObject = {name: name, id: track, artist: artist, image: image};
+        newSeedList.push(newSeedObject);
+        this.setState({seed: newSeedList}, this.getRecommended("tracks"));
+      }
     }else{
-      this.setState({seed: [{name: name, id: track, artist: artist, image: image}]}, this.getRecommended("tracks"));
     }
-    console.log("clicked");
+  }
+
+  removeSeed = (track) => {
+    let newSeedList = this.state.seed.filter(seed => seed.id !== track);
+    this.setState({seed: newSeedList}, this.getRecommended("tracks"));
   }
 
   getRecommended = (type) => {
     if(this.state.seed.length > 0){
-      Spotify.getRecommended(this.state.seed[0], type).then(recommendedResult => {
+      Spotify.getRecommended(this.state.seed, type).then(recommendedResult => {
         this.setState({recommended: recommendedResult});
       })
     }
@@ -47,8 +59,7 @@ class App extends React.Component {
 
   createPlaylist = () => {
     let uris = this.state.recommended.map(elem => elem.uri);
-    // console.log(uris);
-    Spotify.savePlaylist("NewPlaylist", uris);
+    Spotify.savePlaylist("BIGDADDYBOY", uris);
   }
 
   render() {
@@ -71,7 +82,7 @@ class App extends React.Component {
                 <div className="detailWording">seeds</div>
                 <div className="detailHighlight"></div>
               </div>
-              <SelectionList selection={this.state.seed}/>
+              <SelectionList selection={this.state.seed} selectionType="seed" removeSeed={this.removeSeed}/>
             </div>
             <div className="recommendedList">
               <div className="recommendedDetail">
