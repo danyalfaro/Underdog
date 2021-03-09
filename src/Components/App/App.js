@@ -34,24 +34,23 @@ class App extends React.Component {
       if(!artist){
         let newSeedObject = {name: name, id: track, image: image};
         newSeedList.push(newSeedObject);
-        this.setState({seed: newSeedList}, this.getRecommended("artists"));
+        this.setState({seed: newSeedList}, this.getRecommended);
       }else{
         let newSeedObject = {name: name, id: track, artist: artist, image: image};
         newSeedList.push(newSeedObject);
-        this.setState({seed: newSeedList}, this.getRecommended("tracks"));
+        this.setState({seed: newSeedList}, this.getRecommended);
       }
-    }else{
     }
   }
 
   removeSeed = (track) => {
     let newSeedList = this.state.seed.filter(seed => seed.id !== track);
-    this.setState({seed: newSeedList}, this.getRecommended("tracks"));
+    this.setState({seed: newSeedList}, this.getRecommended);
   }
 
-  getRecommended = (type) => {
+  getRecommended = () => {
     if(this.state.seed.length > 0){
-      Spotify.getRecommended(this.state.seed, type).then(recommendedResult => {
+      Spotify.getRecommended(this.state.seed).then(recommendedResult => {
         this.setState({recommended: recommendedResult});
       })
     }
@@ -59,7 +58,7 @@ class App extends React.Component {
 
   createPlaylist = () => {
     let uris = this.state.recommended.map(elem => elem.uri);
-    Spotify.savePlaylist("BIGDADDYBOY", uris);
+    Spotify.savePlaylist("NEWPLAYLISTFORYOU", uris);
   }
 
   render() {
@@ -82,7 +81,7 @@ class App extends React.Component {
                 <div className="detailWording">seeds</div>
                 <div className="detailHighlight"></div>
               </div>
-              <SelectionList selection={this.state.seed} selectionType="seed" removeSeed={this.removeSeed}/>
+              <SelectionList selection={this.state.seed} seed={this.state.seed} selectionType="seed" removeSeed={this.removeSeed}/>
             </div>
             <div className="recommendedList">
               <div className="recommendedDetail">
@@ -90,7 +89,7 @@ class App extends React.Component {
                 <div className="detailHighlight"></div>
               </div>
               <div className="selectionList">
-                <SelectionList selection={this.state.recommended}/>
+                <SelectionList selection={this.state.recommended} seed={this.state.seed}/>
               </div>
             </div>
             <button type="button" className="playlistButton" onClick={this.createPlaylist}>Save to Playlist</button>

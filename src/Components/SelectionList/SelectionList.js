@@ -8,24 +8,29 @@ class SelectionList extends React.Component {
         this.state = {  }
     }
     render() { 
-        return ( 
-            this.props.selection.map((select, i) => {
-                if(i < 15){
-                    if(this.props.selectionType === "seed"){
-                        return ( 
-                            <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id} type="seed" removeSeed={this.props.removeSeed}/>
-                        );
+        if(this.props.seed.length > 0){
+            return ( 
+                this.props.selection.map((select, i) => {
+                    if(i < 15){
+                        if(this.props.selectionType === "seed"){
+                            return ( 
+                                <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id} type="seed" removeSeed={this.props.removeSeed}/>
+                            );
+                        }else{
+                            return ( 
+                                <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
+                            );
+                        }
                     }else{
-                        return ( 
-                            <Selection name={select.name} artist={select.artist} id={select.id} imageUrl={select.image} key={select.id}/>
-                        );
+                        return null;
                     }
-                }else{
-                    return null;
-                }
-                
-            })
-        );
+                    
+                })
+            );
+        }else{
+            return null;
+        }
+        
     }
 }
  
