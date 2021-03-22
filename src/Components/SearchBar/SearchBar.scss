@@ -1,6 +1,7 @@
 .searchBar{
     display: flex;
     // margin-bottom: 15px;
+    justify-content: center;
 }
 
 .seedType{
@@ -38,6 +39,7 @@ input[type=text]:focus{
     border: none;
     color: #5f5f5f;
     padding-right: 5%;
+    // flex: 1;
 }
 
 .searchButton:hover{
