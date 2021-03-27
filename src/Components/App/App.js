@@ -30,16 +30,21 @@ class App extends React.Component {
 
   addSeed = (name, track, artist, image) => {
     if(this.state.seed.length < 3){
-        let newSeedList = this.state.seed;
-      if(!artist){
-        let newSeedObject = {name: name, id: track, image: image};
-        newSeedList.push(newSeedObject);
-        this.setState({seed: newSeedList}, this.getRecommended);
+      if(this.state.seed.some(elem => elem.id === track)){
+        alert("Song already selected!");
       }else{
-        let newSeedObject = {name: name, id: track, artist: artist, image: image};
-        newSeedList.push(newSeedObject);
-        this.setState({seed: newSeedList}, this.getRecommended);
+        let newSeedList = this.state.seed;
+        if(!artist){
+          let newSeedObject = {name: name, id: track, image: image};
+          newSeedList.push(newSeedObject);
+          this.setState({seed: newSeedList}, this.getRecommended);
+        }else{
+          let newSeedObject = {name: name, id: track, artist: artist, image: image};
+          newSeedList.push(newSeedObject);
+          this.setState({seed: newSeedList}, this.getRecommended);
+        }
       }
+        
     }
   }
 
@@ -58,7 +63,15 @@ class App extends React.Component {
 
   createPlaylist = () => {
     let uris = this.state.recommended.map(elem => elem.uri);
-    Spotify.savePlaylist("NEWPLAYLISTFORYOU", uris);
+    let playlistName = "";
+    for(let i=0; i<this.state.seed.length; i++){
+      if(i === 0){
+        playlistName += this.state.seed[0].name;
+      }else{
+        playlistName += ` + ${this.state.seed[i].name}`;
+      }
+    }
+    Spotify.savePlaylist(playlistName, uris);
   }
 
   render() {
