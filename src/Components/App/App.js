@@ -4,6 +4,7 @@ import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultsList from '../ResultsList/ResultsList';
 import SelectionList from '../SelectionList/SelectionList';
+import spotifyLogo from './spotifyLogo.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -78,7 +79,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          {/* <div></div> */}
           underdog
+          {/* <button className="spotifyLogin">
+            <img className="spotifyLogo" width="30" src={spotifyLogo} alt="SpotifyLogo"></img>
+            Login to Spotify
+          </button> */}
         </header>
         <div className="App-body">
           <div className="searchSection">

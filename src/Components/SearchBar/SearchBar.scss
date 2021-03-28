@@ -40,11 +40,12 @@ input[type=text]:focus{
     color: #5f5f5f;
     padding-right: 5%;
     // flex: 1;
+    &:hover{
+        cursor:pointer;
+    }
 }
 
-.searchButton:hover{
-    cursor:pointer;
-}
+
 
 .selected{
     background-color: #fff !important;

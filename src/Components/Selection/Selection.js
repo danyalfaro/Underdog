@@ -13,7 +13,7 @@ class Selection extends React.Component {
 
     setRemove = () => {
         if(this.props.type === 'seed'){
-            return (<button onClick={this.removeSeed}>Remove</button>);
+            return (<button className="removeBtn" onClick={this.removeSeed}>X</button>);
         }else{
             return;
         }
@@ -23,9 +23,9 @@ class Selection extends React.Component {
         return ( 
         <div className="selectionWrapper">
             <img src={this.props.imageUrl} alt="cover" width="150px"></img>
-            <p className="selectionName">{this.props.name}</p>
-            <p className="selectionArtist">{this.props.artist}</p>
             {this.setRemove()}
+            <div className="selectionName">{this.props.name}</div>
+            <div className="selectionArtist">{this.props.artist}</div>
         </div> 
         );
     }

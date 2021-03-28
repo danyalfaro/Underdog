@@ -1,4 +1,21 @@
 .selectionWrapper{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 25px;
+    width: 55%;
+    font-size: 14px;
+}
+
+.removeBtn{
+    position: relative;
+    bottom: 140px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border-style: none;
+    background-color: rgb(150, 10, 10);
+    color: #fff;
+    &:hover{
+        cursor: pointer;
+    }
 }

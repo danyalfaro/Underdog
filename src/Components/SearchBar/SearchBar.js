@@ -31,12 +31,6 @@ class SearchBar extends React.Component {
     this.setState({searchType: "artist"});
   }
 
-  // enterKey = (e) => {
-  //   if(e.key === 'Enter'){
-  //     this.search();
-  //   }
-  // }
-
   render() {
     return (
       <div>

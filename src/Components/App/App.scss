@@ -12,12 +12,28 @@ $scrollBarColor: #b8b8b8;
 .App-header {
   min-height: 7vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #000;
   border-bottom: 3px solid #000;
+}
+
+.spotifyLogin{
+  margin-right: 5%;
+  background-color: rgba(0, 255, 255, 0);
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.spotifyLogo{
+  margin-right: 10px;
 }
 
 .App-body{
@@ -68,7 +84,7 @@ $scrollBarColor: #b8b8b8;
 
 .seedList{
   width: 90%;
-  min-height: 20vh;
+  min-height: 30vh;
   display: flex;
   padding-left:  10%;
 }
@@ -76,9 +92,9 @@ $scrollBarColor: #b8b8b8;
 .recommendedList{
   width: 100%;
   display: flex;
-  min-height: 40vh;
+  min-height: 45vh;
   max-height: 45vh;
-  background-color: rgba(255, 255, 255, 0.452);
+  background-color: rgba(255, 255, 255, 0.63);
 }
 
 .recommendedDetail{
@@ -99,7 +115,8 @@ $scrollBarColor: #b8b8b8;
 }
 
 .detailWording{
-  font-size: 150%;
+  // font-size: 150%;
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   position: relative;
   z-index: 1;
 }

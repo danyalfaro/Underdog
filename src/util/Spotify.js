@@ -1,5 +1,7 @@
-const clientId = ''; // Insert client ID here.
-const redirectUri = 'http://localhost:3000/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
+const {
+  REACT_APP_CLIENT_ID,
+  REACT_APP_REDIRECT_URL
+} = process.env;
 let accessToken;
 
 const Spotify = {
@@ -17,7 +19,7 @@ const Spotify = {
       window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing us to grab a new access token when it expires.
       return accessToken;
     } else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${REACT_APP_CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REACT_APP_REDIRECT_URL}`;
       window.location = accessUrl;
     }
   },
@@ -71,9 +73,9 @@ const Spotify = {
               name: artist.name,
               uri: artist.uri,
               image: "https://via.placeholder.com/150",
-          })
+            })
           }
-          }
+        }
       );
     });
   },
