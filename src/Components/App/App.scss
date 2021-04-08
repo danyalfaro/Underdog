@@ -92,8 +92,8 @@ $scrollBarColor: #b8b8b8;
 .recommendedList{
   width: 100%;
   display: flex;
-  min-height: 45vh;
-  max-height: 45vh;
+  min-height: 50vh;
+  max-height: 50vh;
   background-color: rgba(255, 255, 255, 0.63);
 }
 
@@ -116,7 +116,7 @@ $scrollBarColor: #b8b8b8;
 
 .detailWording{
   // font-size: 150%;
-  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  font-size: calc(14px + 6 * ((100vw - 320px) / 680));
   position: relative;
   z-index: 1;
 }

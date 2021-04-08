@@ -22,7 +22,7 @@ class Selection extends React.Component {
     render() { 
         return ( 
         <div className="selectionWrapper">
-            <img src={this.props.imageUrl} alt="cover" width="150px"></img>
+            <img src={this.props.imageUrl} alt="cover" width="190px"></img>
             {this.setRemove()}
             <div className="selectionName">{this.props.name}</div>
             <div className="selectionArtist">{this.props.artist}</div>
