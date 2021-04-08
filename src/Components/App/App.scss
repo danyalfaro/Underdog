@@ -3,7 +3,6 @@ $scrollBarColor: #b8b8b8;
 
 .App {
   background-color: $mainColor;
-  // text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -115,7 +114,6 @@ $scrollBarColor: #b8b8b8;
 }
 
 .detailWording{
-  // font-size: 150%;
   font-size: calc(14px + 6 * ((100vw - 320px) / 680));
   position: relative;
   z-index: 1;
