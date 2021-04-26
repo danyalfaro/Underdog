@@ -47,6 +47,7 @@ $scrollBarColor: #b8b8b8;
 .resultsList{
   max-height: 80vh;
   overflow-y: scroll;
+  width: calc(100% + 15px);
 }
 
 ::-webkit-scrollbar {
