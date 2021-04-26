@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
   }
 
   search() {
-    this.props.onSearch(this.state.term, this.state.searchType);
+    
   }
 
   songType = (e) => {
@@ -31,6 +31,11 @@ class SearchBar extends React.Component {
     this.setState({searchType: "artist"});
   }
 
+  onSearch = (e) => {
+    e.preventDefault();
+    this.props.onSearch(this.state.term, this.state.searchType);
+  }
+
   render() {
     return (
       <div>
@@ -39,8 +44,10 @@ class SearchBar extends React.Component {
           <button className={(this.state.searchType === "song" ? 'selected' : ' ')} onClick={this.songType}>song</button>
         </div>
         <div className="searchBar">
-          <input type="text" className="searchInput" placeholder="enter a song or artist..." onChange={this.handleTermChange} />
-          <button type="submit" className="searchButton" onClick={this.search}>search</button>
+          <form onSubmit={this.onSearch}>
+            <input type="text" className="searchInput" placeholder="enter a song or artist..." onChange={this.handleTermChange} />
+            <button type="submit" className="searchButton" onClick={this.search}>search</button>
+          </form>
         </div>
       </div>
     );

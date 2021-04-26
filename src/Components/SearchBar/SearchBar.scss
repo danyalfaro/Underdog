@@ -1,7 +1,9 @@
 .searchBar{
     display: flex;
-    // margin-bottom: 15px;
     justify-content: center;
+    form{
+        display: flex;
+    }
 }
 
 .seedType{
