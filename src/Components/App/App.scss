@@ -1,4 +1,4 @@
-$mainColor: #D8D7D6;
+$mainColor: #d8d7d6;
 $scrollBarColor: #b8b8b8;
 
 .App {
@@ -19,32 +19,34 @@ $scrollBarColor: #b8b8b8;
   border-bottom: 3px solid #000;
 }
 
-.spotifyLogin{
+.spotifyLogin {
   margin-right: 5%;
   background-color: rgba(0, 255, 255, 0);
   border-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
 
-.spotifyLogo{
+.spotifyLogo {
   margin-right: 10px;
 }
 
-.App-body{
+.App-body {
   display: flex;
+  height: 92vh;
 }
 
-.searchSection{
+.searchSection {
   padding: 30px;
   width: 24%;
+  min-width: 240px;
 }
 
-.resultsList{
+.resultsList {
   max-height: 80vh;
   overflow-y: scroll;
   width: calc(100% + 15px);
@@ -59,21 +61,21 @@ $scrollBarColor: #b8b8b8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $scrollBarColor; 
+  background: $scrollBarColor;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(158, 158, 158); 
+  background: rgb(158, 158, 158);
 }
 
-.divider{
+.divider {
   min-width: 3px;
   background-color: #000;
   height: 92vh;
 }
 
-.recommendedSection{
+.recommendedSection {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -82,14 +84,14 @@ $scrollBarColor: #b8b8b8;
   margin-top: 10px;
 }
 
-.seedList{
+.seedList {
   width: 90%;
   min-height: 30vh;
   display: flex;
-  padding-left:  10%;
+  padding-left: 10%;
 }
 
-.recommendedList{
+.recommendedList {
   width: 100%;
   display: flex;
   min-height: 50vh;
@@ -97,15 +99,15 @@ $scrollBarColor: #b8b8b8;
   background-color: rgba(255, 255, 255, 0.63);
 }
 
-.recommendedDetail{
-  height:28px;
+.recommendedDetail {
+  height: 28px;
   transform: rotate(-90deg);
   position: relative;
   top: 30%;
   margin-right: 5%;
 }
 
-.detailHighlight{
+.detailHighlight {
   width: 60%;
   height: 15px;
   background-color: $scrollBarColor;
@@ -114,13 +116,13 @@ $scrollBarColor: #b8b8b8;
   top: -15px;
 }
 
-.detailWording{
+.detailWording {
   font-size: calc(14px + 6 * ((100vw - 320px) / 680));
   position: relative;
   z-index: 1;
 }
 
-.selectionList{
+.selectionList {
   overflow-y: scroll;
   width: 100%;
   display: grid;
@@ -128,13 +130,12 @@ $scrollBarColor: #b8b8b8;
   grid-template-rows: auto auto auto;
 }
 
-.playlistButton{
+.playlistButton {
   margin-top: auto;
   padding: 10px;
   border: none;
-  background-color: #B8B8B8;
+  background-color: #b8b8b8;
   color: #000;
   margin-right: 30%;
   margin-left: 30%;
 }
-
