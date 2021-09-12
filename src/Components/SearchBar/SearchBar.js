@@ -19,10 +19,6 @@ class SearchBar extends React.Component {
     this.setState({term: event.target.value});
   }
 
-  search() {
-    
-  }
-
   songType = (e) => {
     this.setState({searchType: "song"});
   }
