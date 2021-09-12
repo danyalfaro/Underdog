@@ -76,6 +76,9 @@ class App extends React.Component {
       }
     }
     Spotify.savePlaylist(playlistName, uris);
+    alert(
+      "Playlist being saved to your Spotify account... Wait a couple of seconds and then Enjoy! :)"
+    );
   };
 
   componentDidMount() {
