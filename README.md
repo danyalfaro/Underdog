@@ -8,7 +8,7 @@ The app is currently being hosted through Heroku at: ### `https://underdog-app.h
 
 ## Using Underdog
 
-![Underdog App Design Image](underdog/Screen.png)
+![Underdog App Design Image](./underdog/Screen.png)
 
 1. First think of a song or artist you really like and type it in the search box in the left side.
 2. Press enter or click on the "search" button and see the results come up below.
