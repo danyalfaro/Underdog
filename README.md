@@ -4,7 +4,8 @@ The project goal is to provide music recommendations of undiscovered music. It c
 
 ## Running the App
 
-The app is currently being hosted through Heroku at: ### `https://underdog-app.herokuapp.com/`
+The app is currently being hosted through Heroku at: 
+#### `https://underdog-app.herokuapp.com/`
 
 ## Using Underdog
 
