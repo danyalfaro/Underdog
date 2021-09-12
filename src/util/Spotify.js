@@ -100,7 +100,6 @@ const Spotify = {
         trackQuery += "%2C";
       }
       trackQuery += trackUris[trackUris.length - 1];
-      console.log(trackQuery);
     }
     if(artistUris.length > 0){
       for(let i = 0; i < (artistUris.length - 1); i++){
@@ -108,7 +107,6 @@ const Spotify = {
         artistQuery += "%2C";
       }
       artistQuery += artistUris[artistUris.length - 1];
-      console.log(artistQuery);
     }
     
     if(trackQuery && artistQuery){
@@ -121,7 +119,6 @@ const Spotify = {
       //query with only artist
       finalQuery = `https://api.spotify.com/v1/recommendations?seed_artists=${artistQuery}&max_popularity=50`;
     }
-    console.log(finalQuery);
     return fetch(finalQuery, {
       headers: {
         Authorization: `Bearer ${accessToken}`
